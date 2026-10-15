@@ -1,0 +1,6 @@
+# Encje, ktore nigdy nie dostaja wlasnej strony wiki.
+# Powod: sa srodkiem, nie tematem (komendy), albo nazwa wlasna z wnetrza projektu,
+# albo dostawca uslugi, ktorego strona bylaby zlepkiem niepowiazanych notatek.
+# Sufit 20% odsiewa tlo automatycznie; ta lista lapie to, co jest szumem mimo malej liczby.
+nvidia-smi
+journalctl

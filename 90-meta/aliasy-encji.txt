@@ -1,0 +1,8 @@
+# Reczne scalanie encji, ktorych normalizacja nie zlapie.
+# Format:  forma-kanoniczna = wariant, wariant, ...
+# Puste linie i # ignorowane. Po zmianie uruchom compile.py.
+#
+# Przyklad: ten sam byt pod kilkoma nazwami nie przekroczy progu strony wiki,
+# a strona jego poprzednika zostanie i bedzie pokazywac stan nieaktualny.
+voice-typing = faster-whisper, whisper.cpp
+postgresql = Postgres, PostgreSQL 16

@@ -1,0 +1,176 @@
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "title",
+  "summary",
+  "domains",
+  "kind",
+  "projects",
+  "status",
+  "signal",
+  "sensitive",
+  "entities",
+  "question",
+  "outcome",
+  "has_code",
+  "code_langs",
+  "segment_of",
+  "turns",
+  "kontekst",
+  "rozwiazanie",
+  "kod",
+  "pulapki",
+  "decyzje",
+  "superseded_by",
+  "confidence"
+ ],
+ "properties": {
+  "title": {
+   "type": "string",
+   "maxLength": 90
+  },
+  "summary": {
+   "type": "string",
+   "minLength": 80,
+   "maxLength": 700
+  },
+  "domains": {
+   "type": "array",
+   "minItems": 1,
+   "maxItems": 3,
+   "uniqueItems": true,
+   "items": {
+    "enum": [
+     "linux-config",
+     "aplikacje-desktop",
+     "linux-hardware",
+     "windows",
+     "gaming-linux",
+     "gry",
+     "sprzet",
+     "zakupy-research",
+     "java",
+     "spring-boot",
+     "bazy-danych",
+     "frontend",
+     "git-workflow",
+     "devops-cloud",
+     "ai-llm",
+     "prompt-engineering",
+     "automatyzacja-desktop",
+     "media-rozrywka",
+     "jezyki-tlumaczenia",
+     "finanse-podatki",
+     "sprawy-lokalne",
+     "zdrowie",
+     "diy-majsterkowanie",
+     "sport-rekreacja",
+     "motoryzacja",
+     "wiedza-ogolna"
+    ]
+   }
+  },
+  "kind": {
+   "enum": [
+    "reference-lookup",
+    "troubleshooting",
+    "how-to",
+    "decision",
+    "learning",
+    "build",
+    "code-review",
+    "content-creation",
+    "meta-ai",
+    "personal"
+   ]
+  },
+  "projects": {
+   "type": "array",
+   "maxItems": 3,
+   "uniqueItems": true,
+   "items": {
+    "enum": [
+     "second-brain",
+     "hermes-agent",
+     "przykladowy-projekt"
+    ]
+   }
+  },
+  "status": {
+   "enum": [
+    "resolved",
+    "unresolved",
+    "active",
+    "superseded",
+    "evergreen"
+   ]
+  },
+  "signal": {
+   "type": "integer",
+   "minimum": 1,
+   "maximum": 5
+  },
+  "sensitive": {
+   "type": "boolean"
+  },
+  "entities": {
+   "type": "array",
+   "maxItems": 12,
+   "uniqueItems": true,
+   "items": {
+    "type": "string"
+   }
+  },
+  "question": {
+   "type": "string"
+  },
+  "outcome": {
+   "type": "string"
+  },
+  "has_code": {
+   "type": "boolean"
+  },
+  "code_langs": {
+   "type": "array",
+   "uniqueItems": true,
+   "items": {
+    "type": "string"
+   }
+  },
+  "segment_of": {
+   "type": "string",
+   "description": "np. 2/3; 1/1 gdy rozmowa jednotematyczna"
+  },
+  "turns": {
+   "type": "string",
+   "description": "zakres tur uzytkownika, np. 4-13"
+  },
+  "kontekst": {
+   "type": "string"
+  },
+  "rozwiazanie": {
+   "type": "string"
+  },
+  "kod": {
+   "type": "string",
+   "description": "bloki kodu w calosci lub pusty string"
+  },
+  "pulapki": {
+   "type": "string",
+   "description": "co nie zadzialalo i dlaczego; pusty string gdy brak"
+  },
+  "decyzje": {
+   "type": "string"
+  },
+  "superseded_by": {
+   "type": "string",
+   "description": "n-XXXX albo pusty string"
+  },
+  "confidence": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  }
+ }
+}

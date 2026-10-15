@@ -1,0 +1,21 @@
+# Archiwum poza gitem (sekrety w eksportach), z wyjątkiem krótkich, przejrzanych wyciągów approved-ingest
+# (hermes: wyciągi rozmów, inbox: wpisy z 01-inbox).
+# Git nie przywraca plików z wykluczonego katalogu, stąd `00-archive/*`, a nie `00-archive/`.
+# Wyciągi notatek sensitive trafiają do 00-archive/<hermes|inbox>/sensitive/ i zostają ignorowane (katalog nie pasuje do wzorca).
+00-archive/*
+!00-archive/hermes/
+00-archive/hermes/*
+# Tylko nazwy <32 znaki hex>.md (format approved-ingest), nie dowolny .md.
+!00-archive/hermes/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].md
+!00-archive/inbox/
+00-archive/inbox/*
+!00-archive/inbox/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].md
+10-notes/sensitive/
+# Inbox jest lokalną poczekalnią: do gita trafia tylko kopia przerobionego wpisu (00-archive/inbox/).
+01-inbox/
+.obsidian/workspace*.json
+.env
+__pycache__/
+*.py[cod]
+# Dziennik transakcji approved-status.py: lokalny, istnieje tylko po przerwanej zmianie (wtedy --recover).
+90-meta/.approved-status-transaction.json

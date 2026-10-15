@@ -1,0 +1,47 @@
+{
+ "approval": "approved",
+ "source": {
+  "application": "inbox",
+  "models": [],
+  "conversation_id": "01-inbox/2026-10/2026-10-14.md#09:15",
+  "date": "2026-10-14",
+  "lang": "pl",
+  "excerpt": "## 09:15\nDesktop, Linux: commit w repozytorium vaultu kończył się błędem `No module named 'yaml'`. Hook pre-commit uruchamia walidator zwykłym `python3`, a terminal agenta miał na początku PATH interpreter bez PyYAML. Naprawa: `export PATH=/usr/bin:$PATH` przed commitem; sprawdzenie: `python3 -c 'import yaml'`.\n"
+ },
+ "note": {
+  "title": "Hook pre-commit nie widzi PyYAML w terminalu agenta",
+  "summary": "Commit w vaulcie padał, bo hook pre-commit uruchamia walidator zwykłym python3, a terminal agenta miał w PATH interpreter bez PyYAML. Rozwiązanie: systemowy Python na początku PATH przed commitem.",
+  "domains": [
+   "git-workflow",
+   "linux-config"
+  ],
+  "kind": "troubleshooting",
+  "projects": [
+   "second-brain"
+  ],
+  "status": "resolved",
+  "signal": 3,
+  "sensitive": false,
+  "entities": [
+   "pre-commit",
+   "PyYAML",
+   "Python"
+  ],
+  "question": "Dlaczego commit kończy się błędem No module named yaml?",
+  "outcome": "Commit przechodzi po ustawieniu PATH.",
+  "has_code": true,
+  "code_langs": [
+   "bash"
+  ],
+  "segment_of": "1/1",
+  "turns": "wpis 09:15",
+  "kontekst": "Przykładowa, sztuczna notatka do demonstracji przepływu.",
+  "rozwiazanie": "Ustawić systemowy Python na początku PATH przed commitem.",
+  "kod": "```bash\nexport PATH=/usr/bin:$PATH\npython3 -c 'import yaml'\n```",
+  "pulapki": "Instalacja PyYAML w innym interpreterze niczego nie zmienia, bo hook woła python3 z PATH.",
+  "decyzje": "",
+  "superseded_by": "",
+  "confidence": null,
+  "related": []
+ }
+}

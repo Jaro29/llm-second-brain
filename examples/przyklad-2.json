@@ -1,0 +1,42 @@
+{
+ "approval": "approved",
+ "source": {
+  "application": "inbox",
+  "models": [],
+  "conversation_id": "01-inbox/2026-10/2026-10-14.md#09:40",
+  "date": "2026-10-14",
+  "lang": "pl",
+  "excerpt": "## 09:40\nDesktop, Linux: dwie maszyny nadały ten sam identyfikator notatki, bo jedna publikowała bez `git fetch`. Na razie bez rozwiązania; pomysł: skrypt publikacji odmawia, gdy ostatni fetch jest starszy niż godzina.\n"
+ },
+ "note": {
+  "title": "Zdublowane ID notatek przy publikacji z dwóch maszyn",
+  "summary": "Dwie maszyny nadały ten sam identyfikator notatki, bo jedna publikowała bez świeżego git fetch. Wątek otwarty: pomysł na strażnika, który odmawia publikacji przy starym fetchu.",
+  "domains": [
+   "git-workflow"
+  ],
+  "kind": "troubleshooting",
+  "projects": [
+   "second-brain"
+  ],
+  "status": "unresolved",
+  "signal": 3,
+  "sensitive": false,
+  "entities": [
+   "git",
+   "next-id"
+  ],
+  "question": "Skąd zdublowane identyfikatory notatek?",
+  "outcome": "Przyczyna znana, rozwiązanie do zrobienia.",
+  "has_code": false,
+  "code_langs": [],
+  "segment_of": "1/1",
+  "turns": "wpis 09:40",
+  "kontekst": "Przykładowa, sztuczna notatka do demonstracji przepływu.",
+  "rozwiazanie": "",
+  "kod": "",
+  "pulapki": "Licznik ID w gicie rozjeżdża się, gdy maszyna publikuje bez aktualnego stanu z origin.",
+  "decyzje": "",
+  "superseded_by": "",
+  "confidence": null
+ }
+}
