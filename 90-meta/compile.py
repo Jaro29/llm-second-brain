@@ -155,18 +155,20 @@ for e in sorted(strony, key=lambda x: (-cnt[x], tytul_dla(x, forms).casefold()))
 pokryte = {d['_p'].stem for e in strony for d in notes
            if e in {norm(x) for x in (d.get('entities') or [])}}
 sierot = N - len(pokryte)
+pct_sierot = 100 * sierot / N if N else 0     # pusty korpus (np. wizytowka przed pierwsza notatka)
 dom_all = collections.Counter(x for d in notes for x in d['domains'])
 idx = ['# index.md\n',
        f'Katalog warstwy wiki. {len(zbudowane)} stron zbudowanych z {N} notatek, '
        f'przez `compile.py` (prog {FLOOR} notatek, sufit {CEIL:.0%}).\n',
        '> **Ważne dla agenta:** ten indeks pokrywa wyłącznie tematy, które wystąpiły',
-       f'> wystarczająco często, żeby dało się z nich coś złożyć. **{sierot} notatek ({100*sierot/N:.0f}%)',
+       f'> wystarczająco często, żeby dało się z nich coś złożyć. **{sierot} notatek ({pct_sierot:.0f}%)',
        '> nie ma swojej strony**, bo ich temat pojawił się raz lub dwa. Brak strony nie znaczy',
        '> brak wiedzy: te notatki leżą w `10-notes/` i znajduje się je wyszukiwaniem',
-       '> pełnotekstowym oraz filtrem po `domains`, `kind` i `projects` (wzorce w `router.md`).\n',
-       f'Poza zakresem stron celowo: {", ".join(f"{t} ({c} notatek)" for t, c in tlo)} '
-       '- to stała twojego środowiska, opisana w `30-state/identity-hardware.md`, nie temat.\n',
-       '## Strony\n']
+       '> pełnotekstowym oraz filtrem po `domains`, `kind` i `projects` (wzorce w `router.md`).\n']
+if tlo:
+    idx.append(f'Poza zakresem stron celowo: {", ".join(f"{t} ({c} notatek)" for t, c in tlo)} '
+               '- to stała twojego środowiska, opisana w `30-state/identity-hardware.md`, nie temat.\n')
+idx.append('## Strony\n')
 for t, c, s in zbudowane: idx.append(f'- [[{s}|{t}]] <small>{c} notatek</small>')
 idx.append('\n## Notatki wg domeny\n')
 idx.append('Do zejścia poziom niżej, gdy strona nie odpowiada.\n')
@@ -175,6 +177,6 @@ for k, v in dom_all.most_common():
 (V / 'index.md').write_text('\n'.join(idx) + '\n', encoding='utf-8')
 
 print(f'odsiane stoplista: {sum(1 for e in cnt if e in STOP and cnt[e] >= FLOOR)}')
-print(f'{len(zbudowane)} stron z {N} notatek | bez strony: {sierot} ({100*sierot/N:.0f}%)')
+print(f'{len(zbudowane)} stron z {N} notatek | bez strony: {sierot} ({pct_sierot:.0f}%)')
 print(f'odsiane sufitem: {", ".join(t for t, _ in tlo) or "brak"}')
 print('najwieksze:', ', '.join(f'{t} ({c})' for t, c, _ in zbudowane[:6]))
